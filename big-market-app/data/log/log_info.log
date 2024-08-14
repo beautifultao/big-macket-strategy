@@ -22,3 +22,56 @@
  + StrategyAwards: [StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null), StrategyAward(id=null, strategyId=100001, awardId=null, awardTitle=null, awardSubtitle=null, awardCount=null, awardCountSurplus=null, awardRate=null, ruleModels=null, sort=null, createTime=null, updateTime=null)]
 24-08-14.10:48:43.666 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
 24-08-14.10:48:43.669 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+24-08-14.11:24:23.330 [main            ] INFO  RedisTest              - Starting RedisTest using Java 17.0.10 on Administrator with PID 4880 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-14.11:24:23.331 [main            ] INFO  RedisTest              - The following 1 profile is active: "dev"
+24-08-14.11:24:24.365 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-14.11:24:24.371 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-14.11:24:24.409 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+24-08-14.11:24:25.138 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-14.11:24:25.283 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-14.11:24:25.587 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.11:24:25.602 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.11:24:28.542 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-14.11:24:28.613 [main            ] INFO  RedisTest              - Started RedisTest in 5.767 seconds (JVM running for 6.591)
+24-08-14.11:37:20.572 [main            ] INFO  RedisTest              - Starting RedisTest using Java 17.0.10 on Administrator with PID 28456 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-14.11:37:20.573 [main            ] INFO  RedisTest              - The following 1 profile is active: "dev"
+24-08-14.11:37:21.510 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-14.11:37:21.517 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-14.11:37:21.570 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+24-08-14.11:37:22.239 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-14.11:37:22.383 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-14.11:37:22.673 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.11:37:22.687 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.11:37:25.306 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-14.11:37:25.374 [main            ] INFO  RedisTest              - Started RedisTest in 5.199 seconds (JVM running for 5.881)
+24-08-14.11:37:25.921 [main            ] INFO  RedisTest              - Map: value1
+24-08-14.17:52:29.442 [main            ] INFO  StrategyTest           - Starting StrategyTest using Java 17.0.10 on Administrator with PID 21248 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-14.17:52:29.443 [main            ] INFO  StrategyTest           - The following 1 profile is active: "dev"
+24-08-14.17:52:30.379 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-14.17:52:30.385 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-14.17:52:30.426 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+24-08-14.17:52:31.407 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-14.17:52:31.662 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-14.17:52:31.956 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.17:52:31.971 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.17:52:34.263 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-14.17:52:34.325 [main            ] INFO  StrategyTest           - Started StrategyTest in 5.19 seconds (JVM running for 6.165)
+24-08-14.17:52:34.858 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+24-08-14.17:52:35.114 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+24-08-14.17:52:37.284 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+24-08-14.17:52:37.305 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+24-08-14.17:53:49.097 [main            ] INFO  StrategyTest           - Starting StrategyTest using Java 17.0.10 on Administrator with PID 30384 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-14.17:53:49.099 [main            ] INFO  StrategyTest           - The following 1 profile is active: "dev"
+24-08-14.17:53:50.028 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-14.17:53:50.034 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-14.17:53:50.070 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+24-08-14.17:53:51.306 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-14.17:53:51.563 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-14.17:53:51.881 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.17:53:51.896 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-14.17:53:54.148 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-14.17:53:54.207 [main            ] INFO  StrategyTest           - Started StrategyTest in 5.549 seconds (JVM running for 6.222)
+24-08-14.17:53:54.713 [main            ] INFO  StrategyTest           - 测试结果：102 - 奖品ID值
+24-08-14.17:53:54.716 [main            ] INFO  StrategyTest           - 测试结果：101 - 奖品ID值
+24-08-14.17:53:54.719 [main            ] INFO  StrategyTest           - 测试结果：102 - 奖品ID值
+24-08-14.17:53:54.722 [main            ] INFO  StrategyTest           - 测试结果：101 - 奖品ID值

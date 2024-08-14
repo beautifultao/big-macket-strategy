@@ -19,7 +19,7 @@ services:
     ports:
       - "13306:3306"
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d
+      - ./mysql/sql:/docker-entrypoint-initdb.d
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       interval: 5s
@@ -31,7 +31,7 @@ services:
 
   # 自动加载数据
   mysql-job-dbdata:
-    image: alpine:3.18.2
+    image: alpine:3.20.2
     container_name: mysql-job-dbdata
     volumes:
       - /var/lib/mysql
@@ -52,6 +52,26 @@ services:
         condition: service_healthy
     networks:
       - my-network
+
+  # Redis
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    hostname: redis
+    privileged: true
+    ports:
+      - 16379:6379
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - my-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 networks:
   my-network:
