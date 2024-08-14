@@ -1,3 +1,4 @@
+# 命令执行 docker-compose up -d
 version: '3.9'
 services:
   mysql:
@@ -7,7 +8,10 @@ services:
     restart: always
     environment:
       TZ: Asia/Shanghai
+      # MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' # 可配置无密码，注意配置 SPRING_DATASOURCE_PASSWORD=
       MYSQL_ROOT_PASSWORD: 123456
+      # MYSQL_USER: xfg
+      # MYSQL_PASSWORD: RTry78@#ww
     networks:
       - my-network
     depends_on:
@@ -16,20 +20,21 @@ services:
       - "13306:3306"
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
-      - mysql-data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       interval: 5s
       timeout: 10s
       retries: 10
       start_period: 15s
+    volumes_from:
+      - mysql-job-dbdata
 
   # 自动加载数据
   mysql-job-dbdata:
-    image: alpine:3.20.2
+    image: alpine:3.18.2
     container_name: mysql-job-dbdata
     volumes:
-      - mysql-data:/var/lib/mysql
+      - /var/lib/mysql
 
   # phpmyadmin https://hub.docker.com/_/phpmyadmin
   phpmyadmin:
@@ -51,6 +56,3 @@ services:
 networks:
   my-network:
     driver: bridge
-
-volumes:
-  mysql-data:
