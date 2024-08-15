@@ -377,3 +377,17 @@
 24-08-15.12:46:21.621 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
 24-08-15.12:46:24.771 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
 24-08-15.12:46:24.859 [main            ] INFO  StrategyTest           - Started StrategyTest in 6.261 seconds (JVM running for 7.222)
+24-08-15.12:48:05.350 [main            ] INFO  StrategyTest           - Starting StrategyTest using Java 17.0.10 on Administrator with PID 11452 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-15.12:48:05.351 [main            ] INFO  StrategyTest           - The following 1 profile is active: "dev"
+24-08-15.12:48:06.308 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-15.12:48:06.314 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-15.12:48:06.348 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+24-08-15.12:48:07.524 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-15.12:48:07.694 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-15.12:48:08.004 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-15.12:48:08.018 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-15.12:48:10.739 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-15.12:48:10.827 [main            ] INFO  StrategyTest           - Started StrategyTest in 5.892 seconds (JVM running for 6.728)
+24-08-15.12:49:22.652 [main            ] INFO  StrategyTest           - 测试结果：103 - 4000 策略配置
+24-08-15.12:49:23.373 [main            ] INFO  StrategyTest           - 测试结果：102 - 5000 策略配置
+24-08-15.12:49:23.875 [main            ] INFO  StrategyTest           - 测试结果：102 - 6000 策略配置

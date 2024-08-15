@@ -30,3 +30,4 @@
 24-08-15.12:22:40.025 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
 24-08-15.12:45:10.973 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
 24-08-15.12:46:21.291 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-15.12:48:07.694 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
