@@ -1,5 +1,6 @@
 package cn.bugstack.infrastructure.persistent.po;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Date;
  * @Author: 阿涛
  **/
 @Data
+@Builder
 public class StrategyRule {
     // 自增ID
     private Long id;

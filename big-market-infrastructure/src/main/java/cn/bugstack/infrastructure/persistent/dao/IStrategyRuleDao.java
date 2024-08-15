@@ -17,4 +17,6 @@ public interface IStrategyRuleDao {
     List<StrategyRule> queryStrategyRuleList();
 
     StrategyRule queryStrategyRule(@Param("strategyId") Long strategyId, @Param("ruleModel") String ruleModel);
+
+    String queryStrategyRuleValue(StrategyRule strategyRule);
 }

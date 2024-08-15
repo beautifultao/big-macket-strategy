@@ -89,7 +89,6 @@ public class StrategyArmoryDispatch implements IStrategyArmory, IStrategyDispatc
             }
         }
 
-
         // 6. 乱序
         Collections.shuffle(strategyAwardsTable);
 
