@@ -2,6 +2,8 @@ package cn.bugstack.infrastructure.persistent.dao;
 
 import cn.bugstack.infrastructure.persistent.po.StrategyRule;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * @Author: 阿涛
  **/
 @Mapper
-public interface IStrategyRule {
+public interface IStrategyRuleDao {
     List<StrategyRule> queryStrategyRuleList();
+
+    StrategyRule queryStrategyRule(@Param("strategyId") Long strategyId, @Param("ruleModel") String ruleModel);
 }

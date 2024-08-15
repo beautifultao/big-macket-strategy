@@ -27,6 +27,4 @@
         from strategy_award
         where strategy_id = #{strategy_id}
     </select>
-
-
 </mapper>

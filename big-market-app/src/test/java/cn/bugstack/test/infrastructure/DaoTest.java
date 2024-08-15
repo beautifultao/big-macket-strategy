@@ -3,7 +3,7 @@ package cn.bugstack.test.infrastructure;
 import cn.bugstack.infrastructure.persistent.dao.IAwardDao;
 import cn.bugstack.infrastructure.persistent.dao.IStrategyAwardDao;
 import cn.bugstack.infrastructure.persistent.dao.IStrategyDao;
-import cn.bugstack.infrastructure.persistent.dao.IStrategyRule;
+import cn.bugstack.infrastructure.persistent.dao.IStrategyRuleDao;
 import cn.bugstack.infrastructure.persistent.po.Award;
 import cn.bugstack.infrastructure.persistent.po.Strategy;
 import cn.bugstack.infrastructure.persistent.po.StrategyAward;
@@ -27,7 +27,7 @@ public class DaoTest {
     @Resource
     private IStrategyDao strategyDao;
     @Resource
-    private IStrategyRule strategyRuleDao;
+    private IStrategyRuleDao strategyRuleDao;
     @Resource
     private IStrategyAwardDao strategyAwardDao;
 
