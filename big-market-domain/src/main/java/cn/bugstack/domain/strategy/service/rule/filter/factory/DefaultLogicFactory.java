@@ -1,4 +1,4 @@
-package cn.bugstack.domain.strategy.service.rule.factory;
+package cn.bugstack.domain.strategy.service.rule.filter.factory;
 
 import cn.bugstack.domain.strategy.model.entity.RuleActionEntity;
 import cn.bugstack.domain.strategy.service.annotation.LogicStrategy;
@@ -20,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class DefaultLogicFactory {
     public Map<String, ILogicFilter<?>> logicFilterMap = new ConcurrentHashMap<>();
+
 
     // 对每个 ILogicFilter 的实现类通过反射获取该类上的 @LogicStrategy 注解。
     public DefaultLogicFactory(List<ILogicFilter<?>> logicFilters) {
