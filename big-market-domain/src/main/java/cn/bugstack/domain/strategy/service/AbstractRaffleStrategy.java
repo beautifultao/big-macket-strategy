@@ -48,11 +48,11 @@ public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
         ILogicChain logicChain = defaultChainFactory.openLogicChain(strategyId);
         Integer awardId = logicChain.logic(userId, strategyId);
 
-        // 5. 查询抽奖中规则rule_model
+        // 3. 查询抽奖中规则rule_model,
         StrategyAwardRuleModelVO strategyAwardRuleModelVO = repository.queryStrategyAwardRuleModelVO(strategyId, awardId);
 
 
-        // 6. 抽奖中 - 规则过滤
+        // 4. 抽奖中 - 规则过滤
         RuleActionEntity<RuleActionEntity.RaffleCenterEntity> ruleActionCenterEntity = this.doCheckRaffleCenterLogic(RaffleFactorEntity.builder()
                 .userId(userId)
                 .strategyId(strategyId)
