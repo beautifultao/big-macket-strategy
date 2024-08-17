@@ -55,5 +55,4 @@ public class RuleActionEntity<T extends RuleActionEntity.RaffleEntity> {
     static public class RaffleAfterEntity extends RaffleEntity {
 
     }
-
 }
