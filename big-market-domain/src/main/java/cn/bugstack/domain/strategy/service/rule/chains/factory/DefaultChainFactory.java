@@ -5,6 +5,7 @@ import cn.bugstack.domain.strategy.repository.IStrategyRepository;
 import cn.bugstack.domain.strategy.service.rule.chains.ILogicChain;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -29,11 +30,28 @@ public class DefaultChainFactory {
         // 如果未配置策略规则，则只装填一个默认责任链
         if (null == ruleModels || 0 == ruleModels.length) return logicChainGroup.get("default");
 
-        // 按照配置顺序装填用户配置的责任链；rule_blacklist、rule_weight 「注意此数据从Redis缓存中获取，如果更新库表，记得在测试阶段手动处理缓存」
-        ILogicChain logicChain = logicChainGroup.get(ruleModels[0]);
-        ILogicChain current = logicChain;
-        for (int i = 1; i < ruleModels.length; i++) {
-            ILogicChain nextChain = logicChainGroup.get(ruleModels[i]);
+        ILogicChain logicChain;
+        ILogicChain current;
+        boolean hasBlacklist = Arrays.asList(ruleModels).contains("rule_blacklist");
+
+        if (hasBlacklist) {
+            // 将 "rule_blacklist" 作为第一个责任链
+            logicChain = logicChainGroup.get("rule_blacklist");
+            current = logicChain;
+
+            // 将 "rule_blacklist" 过滤掉，防止重复添加
+            ruleModels = Arrays.stream(ruleModels)
+                    .filter(rule -> !"rule_blacklist".equals(rule))
+                    .toArray(String[]::new);
+        } else {
+            // 否则按顺序取第一个规则作为责任链的开始
+            logicChain = logicChainGroup.get(ruleModels[0]);
+            current = logicChain;
+        }
+
+        // 按照配置顺序装填用户配置的责任链
+        for (String ruleModel : ruleModels) {
+            ILogicChain nextChain = logicChainGroup.get(ruleModel);
             current = current.appendNext(nextChain);
         }
 
