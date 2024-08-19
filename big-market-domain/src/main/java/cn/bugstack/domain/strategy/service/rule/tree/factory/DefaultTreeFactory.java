@@ -40,7 +40,7 @@ public class DefaultTreeFactory {
     @NoArgsConstructor
     public static class TreeActionEntity {
         private RuleLogicCheckTypeVO ruleLogicCheckType;
-        private StrategyAwardVO strategyAwardData;
+        private StrategyAwardVO strategyAwardVO;
     }
 
     @Data

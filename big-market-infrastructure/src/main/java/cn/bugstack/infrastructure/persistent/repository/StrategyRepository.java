@@ -10,6 +10,9 @@ import cn.bugstack.infrastructure.persistent.po.*;
 import cn.bugstack.infrastructure.persistent.redis.IRedisService;
 import cn.bugstack.types.Tools.BeanConvertUtils;
 import cn.bugstack.types.common.Constants;
+import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RBlockingQueue;
+import org.redisson.api.RDelayedQueue;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @DateTime: 2024/8/14
@@ -24,6 +28,7 @@ import java.util.Map;
  * @Author: 阿涛
  **/
 @Repository
+@Slf4j
 public class StrategyRepository implements IStrategyRepository {
     @Resource
     private IStrategyAwardDao strategyAwardDao;
@@ -46,14 +51,14 @@ public class StrategyRepository implements IStrategyRepository {
         // 1. 尝试从redis中获取
         String cacheKey = Constants.RedisKey.STRATEGY_AWARD_KEY + strategyId;
         List<StrategyAwardEntity> strategyAwardEntities = redisService.getValue(cacheKey);
-        if(strategyAwardEntities != null && !strategyAwardEntities.isEmpty()) return strategyAwardEntities;
+        if (strategyAwardEntities != null && !strategyAwardEntities.isEmpty()) return strategyAwardEntities;
 
         // 2. 若redis中没有，从mysql中查询
         List<StrategyAward> strategyAwardList = strategyAwardDao.queryStrategyAwardListByStrategyId(strategyId);
         strategyAwardEntities = BeanConvertUtils.convertListTo(strategyAwardList, StrategyAwardEntity::new);
 
         // 3. 缓存至redis
-        redisService.setValue(cacheKey,strategyAwardEntities);
+        redisService.setValue(cacheKey, strategyAwardEntities);
 
         return strategyAwardEntities;
     }
@@ -100,7 +105,7 @@ public class StrategyRepository implements IStrategyRepository {
     public StrategyRuleEntity queryStrategyRule(Long strategyId, String ruleModel) {
         String cacheKey = Constants.RedisKey.STRATEGY_RULE_KEY + strategyId;
         StrategyRuleEntity strategyRuleEntity = redisService.getValue(cacheKey);
-        if (null!= strategyRuleEntity) return strategyRuleEntity;
+        if (null != strategyRuleEntity) return strategyRuleEntity;
 
         StrategyRule strategyRuleRes = strategyRuleDao.queryStrategyRule(strategyId, ruleModel);
         strategyRuleEntity = BeanConvertUtils.convertTo(strategyRuleRes, StrategyRuleEntity::new);
@@ -111,7 +116,7 @@ public class StrategyRepository implements IStrategyRepository {
 
     @Override
     public String queryStrategyRuleValue(Long strategyId, String ruleModel) {
-        return queryStrategyRuleValue(strategyId,null, ruleModel);
+        return queryStrategyRuleValue(strategyId, null, ruleModel);
     }
 
     @Override
@@ -187,6 +192,51 @@ public class StrategyRepository implements IStrategyRepository {
 
         redisService.setValue(cacheKey, ruleTreeVODB);
         return ruleTreeVODB;
+
+    }
+
+    @Override
+    public void cacheStrategyAwardCount(String cacheKey, Integer awardCount) {
+        if(redisService.getValue(cacheKey) != null) return;
+        redisService.setAtomicLong(cacheKey, awardCount);
+    }
+
+    @Override
+    public boolean subtractionAwardCount(String cacheKey) {
+        long surplus = redisService.decr(cacheKey);
+        if (surplus < 0) {
+            redisService.setValue(cacheKey, 0);
+            return false;
+        }
+        String lockKey = cacheKey + Constants.UNDERLINE + surplus;
+        Boolean lock = redisService.setnx(lockKey);
+        if (!lock) {
+            log.info("策略奖品库存加锁失败 {}", lockKey);
+        }
+        return lock;
+    }
+
+    @Override
+    public void awardStockConsumeSendQueue(StrategyAwardStockKeyVO strategyAwardStockKeyVO) {
+        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUEUE_KEY;
+        RBlockingQueue<StrategyAwardStockKeyVO> blockingQueue = redisService.getBlockingQueue(cacheKey);
+        RDelayedQueue<StrategyAwardStockKeyVO> delayedQueue = redisService.getDelayedQueue(blockingQueue);
+        delayedQueue.offer(strategyAwardStockKeyVO, 3, TimeUnit.SECONDS);
+    }
+
+    @Override
+    public StrategyAwardStockKeyVO takeQueueValue() {
+        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUEUE_KEY;
+        RBlockingQueue<StrategyAwardStockKeyVO> blockingQueue = redisService.getBlockingQueue(cacheKey);
+        return blockingQueue.poll();
+    }
+
+    @Override
+    public void updateStrategyAwardStock(Long strategyId, Integer awardId) {
+        StrategyAward strategyAward = new StrategyAward();
+        strategyAward.setStrategyId(strategyId);
+        strategyAward.setAwardId(awardId);
+        strategyAwardDao.updateStrategyAwardStock(strategyAward);
 
     }
 }

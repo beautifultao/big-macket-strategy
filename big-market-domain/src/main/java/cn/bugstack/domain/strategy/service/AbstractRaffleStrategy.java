@@ -1,13 +1,11 @@
 package cn.bugstack.domain.strategy.service;
 
+import cn.bugstack.domain.strategy.IRaffleStock;
+import cn.bugstack.domain.strategy.IRaffleStrategy;
 import cn.bugstack.domain.strategy.model.entity.RaffleAwardEntity;
 import cn.bugstack.domain.strategy.model.entity.RaffleFactorEntity;
-import cn.bugstack.domain.strategy.model.entity.RuleActionEntity;
-import cn.bugstack.domain.strategy.model.vo.RuleLogicCheckTypeVO;
-import cn.bugstack.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import cn.bugstack.domain.strategy.repository.IStrategyRepository;
 import cn.bugstack.domain.strategy.service.armory.IStrategyDispatch;
-import cn.bugstack.domain.strategy.service.rule.chains.ILogicChain;
 import cn.bugstack.domain.strategy.service.rule.chains.factory.DefaultChainFactory;
 import cn.bugstack.domain.strategy.service.rule.tree.factory.DefaultTreeFactory;
 import cn.bugstack.types.enums.ResponseCode;
@@ -21,7 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  * @Author: 阿涛
  **/
 @Slf4j
-public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
+public abstract class AbstractRaffleStrategy implements IRaffleStrategy, IRaffleStock {
 
     // 策略仓储服务 -> domain层像一个大厨，仓储层提供米面粮油
     protected IStrategyRepository repository;
@@ -88,5 +86,4 @@ public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
      * @return 过滤结果【奖品ID，会根据抽奖次数判断、库存判断、兜底兜里返回最终的可获得奖品信息】
      */
     public abstract DefaultTreeFactory.StrategyAwardVO raffleLogicTree(String userId, Long strategyId, Integer awardId);
-
 }

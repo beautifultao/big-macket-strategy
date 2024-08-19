@@ -31,33 +31,35 @@ public class DefaultChainFactory {
         // 如果未配置策略规则，则只装填一个默认责任链
         if (null == ruleModels || 0 == ruleModels.length) return logicChainGroup.get("default");
 
-        ILogicChain logicChain;
-        ILogicChain current;
-        boolean hasBlacklist = Arrays.asList(ruleModels).contains("rule_blacklist");
+        ILogicChain logicChain = null;
+        ILogicChain current = null;
 
-        if (hasBlacklist) {
-            // 将 "rule_blacklist" 作为第一个责任链
+        // 检查是否包含 "rule_blacklist"
+        if (Arrays.asList(ruleModels).contains("rule_blacklist")) {
             logicChain = logicChainGroup.get("rule_blacklist");
             current = logicChain;
-
-            // 将 "rule_blacklist" 过滤掉，防止重复添加
-            ruleModels = Arrays.stream(ruleModels)
-                    .filter(rule -> !"rule_blacklist".equals(rule))
-                    .toArray(String[]::new);
-        } else {
-            // 否则按顺序取第一个规则作为责任链的开始
-            logicChain = logicChainGroup.get(ruleModels[0]);
-            current = logicChain;
         }
 
-        // 按照配置顺序装填用户配置的责任链
+        // 按照顺序装填责任链，并跳过已处理的 "rule_blacklist"
         for (String ruleModel : ruleModels) {
+            if ("rule_blacklist".equals(ruleModel) && logicChain != null) {
+                continue; // 跳过已经添加到责任链的 "rule_blacklist"
+            }
             ILogicChain nextChain = logicChainGroup.get(ruleModel);
-            current = current.appendNext(nextChain);
+            if (logicChain == null) {
+                logicChain = nextChain;  // 初始化第一个责任链
+                current = nextChain;
+            } else {
+                current = current.appendNext(nextChain);
+            }
         }
 
-        // 责任链的最后装填默认责任链
-        current.appendNext(logicChainGroup.get("default"));
+        // 确保责任链的最后装填默认责任链
+        if (current != null) {
+            current.appendNext(logicChainGroup.get("default"));
+        } else {
+            logicChain = logicChainGroup.get("default");
+        }
 
         return logicChain;
     }
