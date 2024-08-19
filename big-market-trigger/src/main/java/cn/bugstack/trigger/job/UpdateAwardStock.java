@@ -1,6 +1,6 @@
 package cn.bugstack.trigger.job;
 
-import cn.bugstack.domain.strategy.IRaffleStock;
+import cn.bugstack.domain.strategy.service.IRaffleStock;
 import cn.bugstack.domain.strategy.model.vo.StrategyAwardStockKeyVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

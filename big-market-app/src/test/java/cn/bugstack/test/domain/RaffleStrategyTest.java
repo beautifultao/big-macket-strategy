@@ -2,7 +2,7 @@ package cn.bugstack.test.domain;
 
 import cn.bugstack.domain.strategy.model.entity.RaffleAwardEntity;
 import cn.bugstack.domain.strategy.model.entity.RaffleFactorEntity;
-import cn.bugstack.domain.strategy.IRaffleStrategy;
+import cn.bugstack.domain.strategy.service.IRaffleStrategy;
 import cn.bugstack.domain.strategy.service.armory.IStrategyArmory;
 import cn.bugstack.domain.strategy.service.rule.chains.Impl.RuleWeightLogicChain;
 import cn.bugstack.domain.strategy.service.rule.tree.impl.RuleLockLogicTreeNode;
