@@ -227,3 +227,58 @@
 24-08-18.23:24:50.005 [scheduling-1    ] INFO  UpdateAwardStock       - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
 24-08-18.23:24:53.342 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
 24-08-18.23:24:53.354 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+24-08-19.21:16:36.993 [main            ] INFO  RaffleActivityDaoTest  - Starting RaffleActivityDaoTest using Java 17.0.10 on Administrator with PID 28132 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-19.21:16:36.994 [main            ] INFO  RaffleActivityDaoTest  - The following 1 profile is active: "dev"
+24-08-19.21:16:38.133 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-19.21:16:38.137 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-19.21:16:38.167 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+24-08-19.21:16:39.607 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-19.21:16:39.795 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-19.21:16:40.080 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:16:40.097 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:16:43.204 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-19.21:16:43.294 [main            ] INFO  RaffleActivityDaoTest  - Started RaffleActivityDaoTest in 6.655 seconds (JVM running for 7.866)
+24-08-19.21:16:44.089 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-19.21:16:44.374 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-19.21:16:44.502 [main            ] INFO  RaffleActivityDaoTest  - 测试结果：{"activityCountId":1,"activityDesc":"测试活动","activityId":100301,"activityName":"测试活动","beginDateTime":1709979310000,"endDateTime":2025512110000,"state":"0","stockCount":1000,"stockCountSurplus":1000,"strategyId":100006}
+24-08-19.21:22:15.914 [main            ] INFO  RaffleActivityOrderDaoTest - Starting RaffleActivityOrderDaoTest using Java 17.0.10 on Administrator with PID 32856 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-19.21:22:15.915 [main            ] INFO  RaffleActivityOrderDaoTest - The following 1 profile is active: "dev"
+24-08-19.21:22:17.139 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-19.21:22:17.144 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-19.21:22:17.176 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+24-08-19.21:22:18.753 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-19.21:22:18.902 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-19.21:22:19.197 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:22:19.218 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:22:22.302 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-19.21:22:22.391 [main            ] INFO  RaffleActivityOrderDaoTest - Started RaffleActivityOrderDaoTest in 6.976 seconds (JVM running for 7.766)
+24-08-19.21:22:22.941 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-19.21:22:23.259 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-19.21:30:54.694 [main            ] INFO  RaffleActivityOrderDaoTest - Starting RaffleActivityOrderDaoTest using Java 17.0.10 on Administrator with PID 24720 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-19.21:30:54.695 [main            ] INFO  RaffleActivityOrderDaoTest - The following 1 profile is active: "dev"
+24-08-19.21:30:55.816 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-19.21:30:55.818 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-19.21:30:55.848 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+24-08-19.21:30:57.333 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-19.21:30:57.490 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-19.21:30:57.788 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:30:57.802 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:31:01.428 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-19.21:31:01.535 [main            ] INFO  RaffleActivityOrderDaoTest - Started RaffleActivityOrderDaoTest in 7.202 seconds (JVM running for 8.497)
+24-08-19.21:39:47.038 [scheduling-1    ] INFO  UpdateAwardStock       - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+24-08-19.21:44:21.781 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-19.21:44:22.401 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-19.21:44:52.034 [main            ] INFO  RaffleActivityOrderDaoTest - Starting RaffleActivityOrderDaoTest using Java 17.0.10 on Administrator with PID 25792 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-19.21:44:52.035 [main            ] INFO  RaffleActivityOrderDaoTest - The following 1 profile is active: "dev"
+24-08-19.21:44:53.258 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-19.21:44:53.262 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-19.21:44:53.290 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+24-08-19.21:44:54.755 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-19.21:44:54.908 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-19.21:44:55.210 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:44:55.226 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-19.21:44:58.500 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-19.21:44:58.617 [main            ] INFO  RaffleActivityOrderDaoTest - Started RaffleActivityOrderDaoTest in 6.978 seconds (JVM running for 7.987)
+24-08-19.21:45:05.502 [scheduling-1    ] INFO  UpdateAwardStock       - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+24-08-19.21:58:10.284 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-19.21:58:10.890 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
