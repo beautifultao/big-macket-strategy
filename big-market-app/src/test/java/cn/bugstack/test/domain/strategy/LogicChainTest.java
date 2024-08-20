@@ -1,11 +1,10 @@
-package cn.bugstack.test.domain;
+package cn.bugstack.test.domain.strategy;
 
 import cn.bugstack.domain.strategy.service.armory.IStrategyArmory;
 import cn.bugstack.domain.strategy.service.rule.chains.ILogicChain;
 import cn.bugstack.domain.strategy.service.rule.chains.Impl.RuleWeightLogicChain;
 import cn.bugstack.domain.strategy.service.rule.chains.factory.DefaultChainFactory;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
