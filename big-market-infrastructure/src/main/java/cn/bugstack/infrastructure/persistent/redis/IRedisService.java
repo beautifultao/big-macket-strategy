@@ -2,6 +2,8 @@ package cn.bugstack.infrastructure.persistent.redis;
 
 import org.redisson.api.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @DateTime: 2024/8/14
  * @Description: TODO(一句话描述此类的作用)
@@ -250,5 +252,7 @@ public interface IRedisService {
 
     void setAtomicLong(String key, Integer value);
 
-    Boolean setnx(String lockKey);
+    Boolean setNx(String lockKey);
+
+    Boolean setNx(String lockKey, Long expireTime);
 }

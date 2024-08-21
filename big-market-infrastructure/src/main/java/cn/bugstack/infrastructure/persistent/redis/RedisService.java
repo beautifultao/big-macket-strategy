@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @DateTime: 2024/8/14
@@ -166,9 +167,12 @@ public class RedisService implements IRedisService{
     }
 
     @Override
-    public Boolean setnx(String lockKey) {
+    public Boolean setNx(String lockKey) {
         return redissonClient.getBucket(lockKey).setIfAbsent("lock");
     }
 
-
+    @Override
+    public Boolean setNx(String lockKey, Long expireTime) {
+        return redissonClient.getBucket(lockKey).setIfAbsent("lock", Duration.ofMillis(expireTime));
+    }
 }

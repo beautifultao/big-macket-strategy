@@ -217,7 +217,7 @@ public class StrategyRepository implements IStrategyRepository {
             return false;
         }
         String lockKey = cacheKey + Constants.UNDERLINE + surplus;
-        Boolean lock = redisService.setnx(lockKey);
+        Boolean lock = redisService.setNx(lockKey);
         if (!lock) {
             log.info("策略奖品库存加锁失败 {}", lockKey);
         }
