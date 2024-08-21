@@ -3,7 +3,6 @@
 <mapper namespace="cn.bugstack.infrastructure.persistent.dao.IRaffleActivitySkuDao">
 
     <resultMap id="dataMap" type="cn.bugstack.infrastructure.persistent.po.RaffleActivitySku">
-        <id column="id" property="id"/>
         <result column="sku" property="sku"/>
         <result column="activity_id" property="activityId"/>
         <result column="activity_count_id" property="activityCountId"/>
@@ -20,3 +19,4 @@
     </select>
 
 </mapper>
+
