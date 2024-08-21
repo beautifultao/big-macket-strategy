@@ -2320,3 +2320,46 @@ Caused by: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - 
 24-08-21.19:47:38.216 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
 24-08-21.19:47:43.009 [main            ] WARN  RaffleOrderTest        - 活动库存不足
 24-08-21.19:47:43.019 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:24:13.573 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.20:24:18.921 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:24:18.930 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:54:49.796 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.20:54:54.620 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:54:54.628 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:01.826 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.20:56:06.709 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.716 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.724 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.731 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.739 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.747 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.753 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.760 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.765 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.771 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:56:06.777 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:37.495 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.20:57:43.474 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.482 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.488 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.495 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.501 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.508 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.514 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.521 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.527 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.533 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:57:43.541 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:58:13.211 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.20:58:19.094 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:58:19.104 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.20:59:55.014 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=1m36s344ms101µs900ns).
+24-08-21.20:59:55.019 [Retail_HikariCP housekeeper] WARN  HikariPool             - Retail_HikariCP - Thread starvation or clock leap detected (housekeeper delta=1m36s222ms198µs400ns).
+24-08-21.21:08:15.189 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.21:08:20.916 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.21:08:20.920 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.21:08:20.925 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.21:08:20.929 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.21:08:20.935 [main            ] WARN  RaffleOrderTest        - 活动库存不足
+24-08-21.21:08:42.072 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-21.21:08:56.825 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
