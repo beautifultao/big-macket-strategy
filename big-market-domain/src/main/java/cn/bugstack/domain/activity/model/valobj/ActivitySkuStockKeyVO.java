@@ -15,10 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ActivitySkuStockKeyVO {
-
     /** 商品sku */
     private Long sku;
     /** 活动ID */
     private Long activityId;
-
 }
