@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @DateTime: 2024/8/21
- * @Description: TODO(一句话描述此类的作用)
+ * @Description: 基础事件
  * @Author: 阿涛
  **/
 public abstract class BaseEvent<T> {
