@@ -45,7 +45,6 @@ public class RaffleActivityController implements IRaffleActivityService {
     private IStrategyArmory strategyArmory;
 
 
-
     /**
      * 活动装配 - 数据预热 | 把活动配置的对应的 sku 一起装配
      *
@@ -153,6 +152,5 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .info(ResponseCode.UN_ERROR.getInfo())
                     .build();
         }
-
     }
 }
