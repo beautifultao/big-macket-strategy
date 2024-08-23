@@ -10,5 +10,8 @@ import java.util.List;
  * @Author: 阿涛
  **/
 public interface IStrategyArmory {
+
     boolean assembleLotteryStrategy(Long strategyId);
+
+    boolean assembleLotteryStrategyByActivityId(Long activityId);
 }

@@ -13,7 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 @DBRouterStrategy(splitTable = true)
 public interface IUserRaffleOrderDao {
+
     void insert(UserRaffleOrder userRaffleOrder);
+
     @DBRouter
     UserRaffleOrder queryNoUsedRaffleOrder(UserRaffleOrder userRaffleOrderReq);
+
+    int updateUserRaffleOrderStateUsed(UserRaffleOrder userRaffleOrderReq);
 }
