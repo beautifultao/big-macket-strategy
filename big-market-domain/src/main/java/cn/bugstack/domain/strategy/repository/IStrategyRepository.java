@@ -7,6 +7,7 @@ import cn.bugstack.domain.strategy.model.vo.RuleTreeVO;
 import cn.bugstack.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import cn.bugstack.domain.strategy.model.vo.StrategyAwardStockKeyVO;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,14 @@ public interface IStrategyRepository {
      * @return 扣减结果
      */
     boolean subtractionAwardCount(String cacheKey);
+    /**
+     * 缓存key，decr 方式扣减库存
+     *
+     * @param cacheKey 缓存Key
+     * @param endTime 结束日期
+     * @return 扣减结果
+     */
+    boolean subtractionAwardCount(String cacheKey, Date endTime);
 
     /**
      * 写入奖品库存消费队列

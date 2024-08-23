@@ -1,5 +1,7 @@
 package cn.bugstack.domain.strategy.service.armory;
 
+import java.util.Date;
+
 /**
  * @DateTime: 2024/8/14
  * @Description: 策略抽奖调度
@@ -10,5 +12,5 @@ public interface IStrategyDispatch {
 
     Integer getRandomAwardId(Long strategyId, String ruleWeightValue);
 
-    boolean subtractionAwardStock(Long strategyId, Integer awardId);
+    boolean subtractionAwardStock(Long strategyId, Integer awardId, Date endTime);
 }
