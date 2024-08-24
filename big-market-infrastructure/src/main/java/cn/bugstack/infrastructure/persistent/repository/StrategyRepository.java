@@ -58,12 +58,25 @@ public class StrategyRepository implements IStrategyRepository {
         if (strategyAwardEntities != null && !strategyAwardEntities.isEmpty()) return strategyAwardEntities;
 
         // 2. 若redis中没有，从mysql中查询
-        List<StrategyAward> strategyAwardList = strategyAwardDao.queryStrategyAwardListByStrategyId(strategyId);
-        strategyAwardEntities = BeanConvertUtils.convertListTo(strategyAwardList, StrategyAwardEntity::new);
+        List<StrategyAward> strategyAwards = strategyAwardDao.queryStrategyAwardListByStrategyId(strategyId);
+        strategyAwardEntities = new ArrayList<>(strategyAwards.size());
+        for (StrategyAward strategyAward : strategyAwards) {
+            StrategyAwardEntity strategyAwardEntity = StrategyAwardEntity.builder()
+                    .strategyId(strategyAward.getStrategyId())
+                    .awardId(strategyAward.getAwardId())
+                    .awardTitle(strategyAward.getAwardTitle())
+                    .awardSubtitle(strategyAward.getAwardSubtitle())
+                    .awardCount(strategyAward.getAwardCount())
+                    .awardCountSurplus(strategyAward.getAwardCountSurplus())
+                    .awardRate(strategyAward.getAwardRate())
+                    .sort(strategyAward.getSort())
+                    .ruleModels(strategyAward.getRuleModels())
+                    .build();
+            strategyAwardEntities.add(strategyAwardEntity);
+        }
 
         // 3. 缓存至redis
         redisService.setValue(cacheKey, strategyAwardEntities);
-
         return strategyAwardEntities;
     }
 
@@ -219,7 +232,7 @@ public class StrategyRepository implements IStrategyRepository {
     public boolean subtractionAwardCount(String cacheKey, Date endDateTime) {
         long surplus = redisService.decr(cacheKey);
         if (surplus < 0) {
-            redisService.setValue(cacheKey, 0);
+            redisService.setAtomicLong(cacheKey, 0);
             return false;
         }
         String lockKey = cacheKey + Constants.UNDERLINE + surplus;

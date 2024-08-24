@@ -143,8 +143,8 @@ public class StrategyArmoryDispatch implements IStrategyArmory, IStrategyDispatc
     }
 
     @Override
-    public boolean subtractionAwardStock(Long strategyId, Integer awardId, Date endTime) {
+    public boolean subtractionAwardStock(Long strategyId, Integer awardId, Date endDateTime) {
         String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_KEY + strategyId + Constants.UNDERLINE + awardId;
-        return repository.subtractionAwardCount(cacheKey, endTime);
+        return repository.subtractionAwardCount(cacheKey, endDateTime);
     }
 }

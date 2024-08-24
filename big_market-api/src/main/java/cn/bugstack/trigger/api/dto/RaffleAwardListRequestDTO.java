@@ -19,7 +19,4 @@ public class RaffleAwardListRequestDTO {
 
     // 抽奖活动ID
     private Long activityId;
-
-
-
 }

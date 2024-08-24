@@ -73,7 +73,6 @@ public class AwardRepository implements IAwardRepository {
         userRaffleOrderReq.setUserId(userAwardRecordEntity.getUserId());
         userRaffleOrderReq.setOrderId(userAwardRecordEntity.getOrderId());
 
-
         try {
             dbRouter.doRouter(userId);
             transactionTemplate.execute(status -> {
