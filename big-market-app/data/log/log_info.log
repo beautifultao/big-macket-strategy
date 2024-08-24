@@ -660,3 +660,32 @@ cn.bugstack.types.exception.AppException: null
 24-08-24.10:27:19.576 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
 24-08-24.10:27:19.577 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
 24-08-24.10:27:19.577 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+24-08-24.16:21:45.736 [main            ] INFO  BehaviorRebateServiceTest - Starting BehaviorRebateServiceTest using Java 17.0.10 on Administrator with PID 6652 (started by 陈涛 in D:\Projects\SpringBoot\big-market-231209-xfg-strategy\big-market-app)
+24-08-24.16:21:45.737 [main            ] INFO  BehaviorRebateServiceTest - The following 1 profile is active: "dev"
+24-08-24.16:21:46.873 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-08-24.16:21:46.876 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-08-24.16:21:46.911 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+24-08-24.16:21:48.254 [main            ] INFO  Version                - Redisson 3.33.0
+24-08-24.16:21:48.384 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-24.16:21:48.663 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-24.16:21:48.679 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:16379
+24-08-24.16:21:52.939 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-08-24.16:21:53.135 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+24-08-24.16:21:53.214 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#61d7bb61:0/SimpleConnection@7712df76 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 1616]
+24-08-24.16:21:53.371 [main            ] INFO  BehaviorRebateServiceTest - Started BehaviorRebateServiceTest in 8.033 seconds (JVM running for 8.903)
+24-08-24.16:21:53.899 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-24.16:21:54.087 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-24.16:21:54.122 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-24.16:21:54.149 [main            ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-24.16:21:54.388 [main            ] INFO  BehaviorRebateServiceTest - 请求参数：{"behaviorTypeVO":"SIGN","outBusinessNo":"20240429","userId":"xiaofuge"}
+24-08-24.16:21:54.423 [main            ] INFO  BehaviorRebateServiceTest - 测试结果：["574021550017","412323706057"]
+24-08-24.16:21:54.474 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+24-08-24.16:21:54.475 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+24-08-24.16:21:55.004 [scheduling-1    ] INFO  UpdateActivitySkuStockJob - 定时任务，更新活动sku库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+24-08-24.16:21:55.029 [scheduling-1    ] INFO  UpdateAwardStock       - 定时任务，更新奖品消耗库存【延迟队列获取，降低对数据库的更新频次，不要产生竞争】
+24-08-24.16:21:55.038 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Starting...
+24-08-24.16:21:55.061 [pool-3-thread-2 ] INFO  HikariDataSource       - Retail_HikariCP - Start completed.
+24-08-24.16:21:55.346 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+24-08-24.16:21:55.346 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+24-08-24.16:21:55.348 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+24-08-24.16:21:55.348 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped

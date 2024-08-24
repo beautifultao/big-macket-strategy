@@ -319,3 +319,4 @@ cn.bugstack.types.exception.AppException: null
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
 24-08-24.10:26:33.163 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
 24-08-24.10:26:45.633 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-08-24.16:21:48.384 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
