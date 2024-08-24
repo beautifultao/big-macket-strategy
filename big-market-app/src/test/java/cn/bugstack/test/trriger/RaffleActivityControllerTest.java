@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @DateTime: 2024/8/23
@@ -42,6 +43,14 @@ public class RaffleActivityControllerTest {
 
         log.info("请求参数：{}", JSON.toJSONString(request));
         log.info("测试结果：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void test_calendarSignRebate() throws InterruptedException {
+        Response<Boolean> response = raffleActivityService.calendarSignRebate("xiaofuge");
+        log.info("测试结果：{}", JSON.toJSONString(response));
+
+        new CountDownLatch(1).await();
     }
 
 }
