@@ -11,6 +11,7 @@ import cn.bugstack.types.model.Response;
 * @Description: 抽奖活动服务
 * @Author: 阿涛
 **/
+
 public interface IRaffleActivityService {
 
     /**

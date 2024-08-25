@@ -27,6 +27,7 @@ import cn.bugstack.types.model.Response;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -43,6 +44,7 @@ import java.util.List;
 @RestController()
 @CrossOrigin("${app.config.cross-origin}")
 @RequestMapping("/api/${app.config.api-version}/raffle/activity/")
+@DubboService(version = "1.0")
 public class RaffleActivityController implements IRaffleActivityService {
     @Resource
     private IRaffleActivityPartakeService raffleActivityPartakeService;
