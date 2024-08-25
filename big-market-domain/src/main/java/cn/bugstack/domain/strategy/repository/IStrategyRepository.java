@@ -4,6 +4,7 @@ import cn.bugstack.domain.strategy.model.entity.StrategyAwardEntity;
 import cn.bugstack.domain.strategy.model.entity.StrategyEntity;
 import cn.bugstack.domain.strategy.model.entity.StrategyRuleEntity;
 import cn.bugstack.domain.strategy.model.vo.RuleTreeVO;
+import cn.bugstack.domain.strategy.model.vo.RuleWeightVO;
 import cn.bugstack.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import cn.bugstack.domain.strategy.model.vo.StrategyAwardStockKeyVO;
 
@@ -60,11 +61,12 @@ public interface IStrategyRepository {
      * @return 扣减结果
      */
     boolean subtractionAwardCount(String cacheKey);
+
     /**
      * 缓存key，decr 方式扣减库存
      *
      * @param cacheKey 缓存Key
-     * @param endTime 结束日期
+     * @param endTime  结束日期
      * @return 扣减结果
      */
     boolean subtractionAwardCount(String cacheKey, Date endTime);
@@ -75,10 +77,12 @@ public interface IStrategyRepository {
      * @param strategyAwardStockKeyVO 对象值对象
      */
     void awardStockConsumeSendQueue(StrategyAwardStockKeyVO strategyAwardStockKeyVO);
+
     /**
      * 获取奖品库存消费队列
      */
     StrategyAwardStockKeyVO takeQueueValue();
+
     /**
      * 更新奖品库存消耗
      *
@@ -101,4 +105,10 @@ public interface IStrategyRepository {
     Integer queryTodayUserRaffleCount(String userId, Long strategyId);
 
     Map<String, Integer> queryAwardRuleLockCount(String[] treeIds);
+
+    Integer queryActivityAccountTotalUseCount(String userId, Long strategyId);
+
+    List<RuleWeightVO> queryAwardRuleWeight(Long strategyId);
+
+    Map<Integer, String> queryAwardIdValueByStrategy(Long strategyId);
 }

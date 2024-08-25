@@ -3,6 +3,8 @@ package cn.bugstack.test.trriger;
 import cn.bugstack.trigger.api.IRaffleStrategyService;
 import cn.bugstack.trigger.api.dto.RaffleAwardListRequestDTO;
 import cn.bugstack.trigger.api.dto.RaffleAwardListResponseDTO;
+import cn.bugstack.trigger.api.dto.RaffleStrategyRuleWeightRequestDTO;
+import cn.bugstack.trigger.api.dto.RaffleStrategyRuleWeightResponseDTO;
 import cn.bugstack.types.model.Response;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +31,6 @@ public class RaffleStrategyControllerTest {
 
 
     @Test
-
     public void test_queryRaffleAwardList() {
         RaffleAwardListRequestDTO request = new RaffleAwardListRequestDTO();
         request.setUserId("xiaofuge");
@@ -39,4 +40,15 @@ public class RaffleStrategyControllerTest {
         log.info("请求参数：{}", JSON.toJSONString(request));
         log.info("测试结果：{}", JSON.toJSONString(response));
     }
+
+    @Test
+    public void test_queryRaffleStrategyRuleWeight() {
+        RaffleStrategyRuleWeightRequestDTO request = new RaffleStrategyRuleWeightRequestDTO();
+        request.setUserId("xiaofuge");
+        request.setActivityId(100301L);
+        Response<List<RaffleStrategyRuleWeightResponseDTO>> response = raffleStrategyService.queryRaffleStrategyRuleWeight(request);
+        log.info("请求参数：{}", JSON.toJSONString(request));
+        log.info("测试结果：{}", JSON.toJSONString(response));
+    }
+
 }
