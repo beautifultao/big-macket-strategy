@@ -22,10 +22,13 @@ import cn.bugstack.trigger.api.dto.ActivityDrawResponseDTO;
 import cn.bugstack.trigger.api.dto.UserActivityAccountRequestDTO;
 import cn.bugstack.trigger.api.dto.UserActivityAccountResponseDTO;
 import cn.bugstack.types.annotations.DCCValue;
+import cn.bugstack.types.annotations.RateLimiterAccessInterceptor;
 import cn.bugstack.types.enums.ResponseCode;
 import cn.bugstack.types.exception.AppException;
 import cn.bugstack.types.model.Response;
 import com.alibaba.fastjson2.JSON;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -62,7 +65,7 @@ public class RaffleActivityController implements IRaffleActivityService {
     @Resource
     private IRaffleActivityAccountQuotaService raffleActivityAccountQuotaService;
 
-    @DCCValue("degradeSwitch:open")
+    @DCCValue("degradeSwitch:close")
     private String degradeSwitch;
 
 
@@ -123,14 +126,18 @@ public class RaffleActivityController implements IRaffleActivityService {
      * "activityId": 100301
      * }'
      */
+    @RateLimiterAccessInterceptor(key = "userId", fallbackMethod = "drawRateLimiterError", permitsPerSecond = 1.0d, blacklistCount = 1)
+    @HystrixCommand(commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "150")
+    }, fallbackMethod = "drawHystrixError")
     @PostMapping(value = "draw")
     @Override
     public Response<ActivityDrawResponseDTO> draw(@RequestBody ActivityDrawRequestDTO request) {
         try {
             log.info("活动抽奖 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
-            System.out.println(degradeSwitch);
-            // 0. 判断是否活动降级
-            if (!"open".equals(degradeSwitch)) {
+
+            // 0. 降级开关【open 开启、close 关闭】
+            if (StringUtils.isNotBlank(degradeSwitch) && "open".equals(degradeSwitch)) {
                 return Response.<ActivityDrawResponseDTO>builder()
                         .code(ResponseCode.DEGRADE_SWITCH.getCode())
                         .info(ResponseCode.DEGRADE_SWITCH.getInfo())
@@ -185,6 +192,22 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .info(ResponseCode.UN_ERROR.getInfo())
                     .build();
         }
+    }
+
+    public Response<ActivityDrawResponseDTO> drawRateLimiterError(@RequestBody ActivityDrawRequestDTO request) {
+        log.info("活动抽奖限流 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+        return Response.<ActivityDrawResponseDTO>builder()
+                .code(ResponseCode.RATE_LIMITER.getCode())
+                .info(ResponseCode.RATE_LIMITER.getInfo())
+                .build();
+    }
+
+    public Response<ActivityDrawResponseDTO> drawHystrixError(@RequestBody ActivityDrawRequestDTO request) {
+        log.info("活动抽奖熔断 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+        return Response.<ActivityDrawResponseDTO>builder()
+                .code(ResponseCode.HYSTRIX.getCode())
+                .info(ResponseCode.HYSTRIX.getInfo())
+                .build();
     }
 
     /**
@@ -289,6 +312,7 @@ public class RaffleActivityController implements IRaffleActivityService {
                     .info(ResponseCode.UN_ERROR.getInfo())
                     .build();
         }
-
     }
+
+
 }
