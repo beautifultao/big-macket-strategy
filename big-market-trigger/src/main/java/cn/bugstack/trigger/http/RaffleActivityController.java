@@ -21,6 +21,7 @@ import cn.bugstack.trigger.api.dto.ActivityDrawRequestDTO;
 import cn.bugstack.trigger.api.dto.ActivityDrawResponseDTO;
 import cn.bugstack.trigger.api.dto.UserActivityAccountRequestDTO;
 import cn.bugstack.trigger.api.dto.UserActivityAccountResponseDTO;
+import cn.bugstack.types.annotations.DCCValue;
 import cn.bugstack.types.enums.ResponseCode;
 import cn.bugstack.types.exception.AppException;
 import cn.bugstack.types.model.Response;
@@ -41,7 +42,7 @@ import java.util.List;
  * @Author: 阿涛
  **/
 @Slf4j
-@RestController()
+@RestController
 @CrossOrigin("${app.config.cross-origin}")
 @RequestMapping("/api/${app.config.api-version}/raffle/activity/")
 @DubboService(version = "1.0")
@@ -60,6 +61,9 @@ public class RaffleActivityController implements IRaffleActivityService {
     private IBehaviorRebateService behaviorRebateService;
     @Resource
     private IRaffleActivityAccountQuotaService raffleActivityAccountQuotaService;
+
+    @DCCValue("degradeSwitch:open")
+    private String degradeSwitch;
 
 
     private final SimpleDateFormat dateFormatDay = new SimpleDateFormat("yyyyMMdd");
@@ -124,6 +128,15 @@ public class RaffleActivityController implements IRaffleActivityService {
     public Response<ActivityDrawResponseDTO> draw(@RequestBody ActivityDrawRequestDTO request) {
         try {
             log.info("活动抽奖 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+            System.out.println(degradeSwitch);
+            // 0. 判断是否活动降级
+            if (!"open".equals(degradeSwitch)) {
+                return Response.<ActivityDrawResponseDTO>builder()
+                        .code(ResponseCode.DEGRADE_SWITCH.getCode())
+                        .info(ResponseCode.DEGRADE_SWITCH.getInfo())
+                        .build();
+            }
+
             // 1. 参数校验
             if (StringUtils.isBlank(request.getUserId()) || null == request.getActivityId()) {
                 throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
