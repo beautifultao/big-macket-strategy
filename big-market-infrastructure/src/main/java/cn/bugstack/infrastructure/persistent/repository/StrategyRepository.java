@@ -255,7 +255,7 @@ public class StrategyRepository implements IStrategyRepository {
 
     @Override
     public void awardStockConsumeSendQueue(StrategyAwardStockKeyVO strategyAwardStockKeyVO) {
-        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUEUE_KEY;
+        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUERY_KEY;
         RBlockingQueue<StrategyAwardStockKeyVO> blockingQueue = redisService.getBlockingQueue(cacheKey);
         RDelayedQueue<StrategyAwardStockKeyVO> delayedQueue = redisService.getDelayedQueue(blockingQueue);
         delayedQueue.offer(strategyAwardStockKeyVO, 3, TimeUnit.SECONDS);
@@ -263,7 +263,7 @@ public class StrategyRepository implements IStrategyRepository {
 
     @Override
     public StrategyAwardStockKeyVO takeQueueValue() {
-        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUEUE_KEY;
+        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUERY_KEY;
         RBlockingQueue<StrategyAwardStockKeyVO> blockingQueue = redisService.getBlockingQueue(cacheKey);
         return blockingQueue.poll();
     }
@@ -403,5 +403,29 @@ public class StrategyRepository implements IStrategyRepository {
             awardIdValue.put(strategyAward.getAwardId(), strategyAward.getAwardTitle());
         }
         return awardIdValue;
+    }
+
+    @Override
+    public List<StrategyAwardStockKeyVO> queryOpenActivityStrategyAwardList() {
+        List<StrategyAward> strategyAwards = strategyAwardDao.queryOpenActivityStrategyAwardList();
+        if (null == strategyAwards || strategyAwards.isEmpty()) return null;
+
+        List<StrategyAwardStockKeyVO> strategyAwardStockKeyVOS = new ArrayList<>();
+        for (StrategyAward strategyAward: strategyAwards){
+            StrategyAwardStockKeyVO strategyAwardStockKeyVO = StrategyAwardStockKeyVO.builder()
+                    .strategyId(strategyAward.getStrategyId())
+                    .awardId(strategyAward.getAwardId())
+                    .build();
+            strategyAwardStockKeyVOS.add(strategyAwardStockKeyVO);
+        }
+
+        return strategyAwardStockKeyVOS;
+    }
+
+    @Override
+    public StrategyAwardStockKeyVO takeQueueValue(Long strategyId, Integer awardId) {
+        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_COUNT_QUERY_KEY + Constants.UNDERLINE + strategyId + Constants.UNDERLINE + awardId;
+        RBlockingQueue<StrategyAwardStockKeyVO> destinationQueue = redisService.getBlockingQueue(cacheKey);
+        return destinationQueue.poll();
     }
 }

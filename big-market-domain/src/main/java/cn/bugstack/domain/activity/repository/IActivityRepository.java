@@ -31,6 +31,8 @@ public interface IActivityRepository {
 
     ActivitySkuStockKeyVO takeQueueValue();
 
+    ActivitySkuStockKeyVO takeQueueValue(Long sku);
+
     void clearQueueValue();
 
     void updateActivitySkuStock(Long sku);
@@ -54,4 +56,8 @@ public interface IActivityRepository {
     ActivityAccountEntity queryActivityAccountEntity(Long activityId, String userId);
 
     Integer queryRaffleActivityAccountPartakeCount(Long activityId, String userId);
+
+    List<Long> querySkuList();
+
+
 }

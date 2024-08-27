@@ -111,4 +111,8 @@ public interface IStrategyRepository {
     List<RuleWeightVO> queryAwardRuleWeight(Long strategyId);
 
     Map<Integer, String> queryAwardIdValueByStrategy(Long strategyId);
+
+    List<StrategyAwardStockKeyVO> queryOpenActivityStrategyAwardList();
+
+    StrategyAwardStockKeyVO takeQueueValue(Long strategyId, Integer awardId);
 }

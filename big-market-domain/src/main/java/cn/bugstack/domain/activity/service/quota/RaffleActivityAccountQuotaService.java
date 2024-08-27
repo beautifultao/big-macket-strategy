@@ -11,6 +11,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @DateTime: 2024/8/20
@@ -66,6 +67,11 @@ public class RaffleActivityAccountQuotaService extends AbstractRaffleActivityAcc
         return activityRepository.takeQueueValue();
     }
 
+    @Override
+    public ActivitySkuStockKeyVO takeQueueValue(Long sku) throws InterruptedException {
+        return activityRepository.takeQueueValue(sku);
+    }
+
 
     @Override
     public void clearQueueValue() {
@@ -82,6 +88,11 @@ public class RaffleActivityAccountQuotaService extends AbstractRaffleActivityAcc
     @Override
     public void clearActivitySkuStock(Long sku) {
         activityRepository.clearActivitySkuStock(sku);
+    }
+
+    @Override
+    public List<Long> querySkuList() {
+        return activityRepository.querySkuList();
     }
 
     @Override

@@ -9,10 +9,6 @@ services:
     environment:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
-    networks:
-      - my-network
-    depends_on:
-      - mysql-job-dbdata
     ports:
       - "13306:3306"
     volumes:
@@ -23,8 +19,9 @@ services:
       timeout: 10s
       retries: 10
       start_period: 15s
-    volumes_from:
-      - mysql-job-dbdata
+    networks:
+      - my-network
+
 
   # 自动加载数据
   mysql-job-dbdata:
@@ -123,6 +120,24 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
+    networks:
+      - my-network
+
+  # http://127.0.0.1:9090/xxl-job-admin admin/123456 - 安装后稍等会访问即可
+  xxl-job-admin:
+    image: xuxueli/xxl-job-admin:2.4.1
+    container_name: xxl-job-admin
+    depends_on:
+      - mysql
+    ports:
+      - "9090:9090"
+    links:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/xxl_job?serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SERVER_PORT=9090
     networks:
       - my-network
 

@@ -6,9 +6,9 @@ import cn.bugstack.types.model.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.data.Stat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api/${app.config.api-version}/raffle/dcc/")
 public class DCCController implements IDCCService {
 
-    @Resource
+    @Autowired(required = false)
     private CuratorFramework client;
 
     private static final String BASE_CONFIG_PATH = "/big-market-dcc";

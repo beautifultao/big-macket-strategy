@@ -128,9 +128,9 @@ public class RaffleActivityController implements IRaffleActivityService {
     public Response<ActivityDrawResponseDTO> draw(@RequestBody ActivityDrawRequestDTO request) {
         try {
             log.info("活动抽奖 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+            // 0. 降级开关【open 开启、close 关闭】
             System.out.println(degradeSwitch);
-            // 0. 判断是否活动降级
-            if (!"open".equals(degradeSwitch)) {
+            if (StringUtils.isNotBlank(degradeSwitch) && "open".equals(degradeSwitch)) {
                 return Response.<ActivityDrawResponseDTO>builder()
                         .code(ResponseCode.DEGRADE_SWITCH.getCode())
                         .info(ResponseCode.DEGRADE_SWITCH.getInfo())

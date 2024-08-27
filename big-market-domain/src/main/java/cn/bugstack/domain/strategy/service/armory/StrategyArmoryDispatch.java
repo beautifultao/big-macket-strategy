@@ -39,11 +39,8 @@ public class StrategyArmoryDispatch implements IStrategyArmory, IStrategyDispatc
             cacheStrategyAwardCount(strategyId, awardId, awardCount);
         }
 
-
         // 3.1 默认装配配置【全量抽奖概率】
         assembleLotteryStrategy(String.valueOf(strategyId), strategyAwardEntities);
-
-
 
         // 3.2 权重策略配置 - 适用于rule_weight权重规则
         StrategyEntity strategyEntity = repository.queryStrategy(strategyId);
