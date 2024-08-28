@@ -32,8 +32,8 @@ import java.util.Map;
  **/
 @Slf4j
 @RestController
-@CrossOrigin("${app.config.cross-origin")
-@RequestMapping("/api/${app.config.api-version}/raffle/")
+@CrossOrigin("*")
+@RequestMapping("/api/${app.config.api-version}/raffle/strategy/")
 public class RaffleStrategyController implements IRaffleStrategyService {
     @Resource
     private IStrategyArmory strategyArmory;
@@ -166,7 +166,7 @@ public class RaffleStrategyController implements IRaffleStrategyService {
 
     @PostMapping(value = "query_raffle_strategy_rule_weight")
     @Override
-    public Response<List<RaffleStrategyRuleWeightResponseDTO>> queryRaffleStrategyRuleWeight(RaffleStrategyRuleWeightRequestDTO request) {
+    public Response<List<RaffleStrategyRuleWeightResponseDTO>> queryRaffleStrategyRuleWeight(@RequestBody RaffleStrategyRuleWeightRequestDTO request) {
         try{
             log.info("查询抽奖策略权重规则配置开始 userId:{} activityId：{}", request.getUserId(), request.getActivityId());
             // 1. 参数校验

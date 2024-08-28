@@ -40,8 +40,8 @@ import java.util.List;
  * @Author: 阿涛
  **/
 @Slf4j
-@RestController()
-@CrossOrigin("${app.config.cross-origin}")
+@RestController
+@CrossOrigin("*")
 @RequestMapping("/api/${app.config.api-version}/raffle/activity/")
 public class RaffleActivityController implements IRaffleActivityService {
     @Resource
@@ -242,7 +242,7 @@ public class RaffleActivityController implements IRaffleActivityService {
 
     @PostMapping(value = "query_user_activity_account")
     @Override
-    public Response<UserActivityAccountResponseDTO> queryUserActivityAccount(UserActivityAccountRequestDTO request) {
+    public Response<UserActivityAccountResponseDTO> queryUserActivityAccount(@RequestBody UserActivityAccountRequestDTO request) {
         try {
             log.info("查询用户活动账户开始 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
             // 1. 参数校验

@@ -9,7 +9,7 @@ server:
 # Spring 配置；rabbitmq
 spring:
   rabbitmq:
-    host: 127.0.0.1
+    addresses: 127.0.0.1
     port: 5672
     username: guest
     password: guest
@@ -21,6 +21,7 @@ spring:
       send_award: send_award
       send_rebate: send_rebate
     virtual-host: /
+
 
 
 # 应用配置
